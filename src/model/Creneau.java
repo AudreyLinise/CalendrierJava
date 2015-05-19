@@ -22,7 +22,13 @@ class Creneau {
         this.jour = jour;
         this.periode = periode;
     }
+    public void setJour(Jour j){
+        this.jour = j;
+    }
     
+    public void setPeriode(Periode p){
+        this.periode = p;
+    }
     public boolean isOuvre(){
         return this.jour.isOuvre();
     }
