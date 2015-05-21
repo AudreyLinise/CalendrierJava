@@ -9,25 +9,28 @@ package model;
  *
  * @author Audrey
  */
-class Sceance {
+class Cours {
     Creneau creneau;
-    Formation formation;
+    Seance seance;
 
-    public Sceance() {
-        //TODO
-    }
-
-    public Sceance(Creneau creneau, Formation formation) {
+    public Cours(Creneau creneau) {
         this.creneau = creneau;
-        this.formation = formation;
     }
 
     public Creneau getCreneau() {
         return creneau;
     }
 
-    public Formation getFormation() {
-        return formation;
+    public void setCreneau(Creneau creneau) {
+        this.creneau = creneau;
+    }
+
+    public Seance getSeance() {
+        return seance;
+    }
+
+    public void setSeance(Seance seance) {
+        this.seance = seance;
     }
     
 }

@@ -17,15 +17,20 @@ class Module {
     protected String nomModule;
     protected String couleurModule;
     protected String abbModule;
+    Integer nbHeure;
+    Integer nbSeances;
     
-    Integer NbHeure;
+    static void init() {}
     
-    static void init() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Module(String n, String c, String a,Integer nb){
+        this.nomModule = n;
+        this.couleurModule = c;
+        this.abbModule = a;
+        this.nbSeances = nb;
     }
     
     public int getNbHeure(){
-        return this.NbHeure;
+        return this.nbHeure;
     }
 
     public String getNomModule() {
@@ -38,6 +43,10 @@ class Module {
 
     public String getAbbModule() {
         return this.abbModule;
+    }
+    
+    public Integer getNbSeances(){
+        return this.nbSeances;
     }
     
 }

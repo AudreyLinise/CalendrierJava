@@ -20,16 +20,19 @@ import org.junit.Test;
  *
  * @author Audrey
  */
-class PlanningTest{
+public class PlanningTest{
+
+    public PlanningTest() {
+    }
     
     /**
      * Test : "Une fois l'année choisie, les jours sont créés automatiquement."
      */
     @Test
     public void initPlanningTest(){
-       Planning planning = new Planning(2015);
+       Planning planning = new Planning(2014);
        assertNotNull(planning);
-       assertEquals(365,planning.getNombreDeJour());
+       assertEquals(2*365L,(long) planning.getNombreDeJour());
     }
     
     /**
@@ -37,9 +40,9 @@ class PlanningTest{
      */
     @Test
     public void initBisextilesPlanningTest(){
-        Planning planning = new Planning(2012);
+        Planning planning = new Planning(2015);
         assertNotNull(planning);
-        assertEquals(366,planning.getNombreDeJour());
+        assertEquals(2*366L,(long) planning.getNombreDeJour());
     }
     
     /**
@@ -48,8 +51,8 @@ class PlanningTest{
      */
     @Test
     public void setJourOuvreeTest(){
-        Planning planning = new Planning(2015);
-        GregorianCalendar calendar = new GregorianCalendar(2015, 05, 17);
+        Planning planning = new Planning(2014);
+        GregorianCalendar calendar = new GregorianCalendar(2015, 5, 17);
         Creneau creneau = new Creneau(new Jour(calendar.getTime()),Periode.MATINEE);
         planning.setOuvre(calendar.getTime(), false);
         // Check if planning exist
@@ -114,4 +117,21 @@ class PlanningTest{
         assertFalse(planningLoaded.get(creneau).getCreneau().isOuvre()); 
     }
 
+    /**
+     * Test : "Sauver le planning de l'année sauve ces données."
+     */
+    @Test
+    public void saveDonneesEtPlanning(){
+        Planning planning = new Planning(2015);
+        GregorianCalendar calendar = new GregorianCalendar(2015, 05, 18);
+        Creneau creneau = new Creneau(new Jour(calendar.getTime()),Periode.MATINEE);
+        Module.init();
+        
+        planning.save("Planning_2015_save");
+         Planning planningLoaded = Planning.load("Planning_2015_save");
+         
+        // On vérifie que le planning n'est pas vide et ainsi confirme que les données sont sauvegardées
+        assertNotNull(planning);
+        
+    }
 }
