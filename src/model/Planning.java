@@ -79,21 +79,21 @@ public class Planning implements Serializable{
     FileOutputStream fos = new FileOutputStream(PATH_BIN);
     // Branché sur un flux de traitement
     ObjectOutputStream oos = new ObjectOutputStream(fos);
-    oos.writeObject(planningList);
+    oos.writeObject(this);
     oos.close();
   }
     
     public static Planning load(String planning_save) throws FileNotFoundException, IOException, ClassNotFoundException {
     
         String PATH_BIN = "C://tmp//"+planning_save+".dat";
-    Planning instance;
+        Planning instance;
     // Flux de communication
-    FileInputStream fichier = new FileInputStream(PATH_BIN);
+        FileInputStream fichier = new FileInputStream(PATH_BIN);
     // Branche sur un flux de traitement
-    ObjectInputStream ois = new ObjectInputStream(fichier);
-    instance = (Planning) ois.readObject();
-    ois.close();
-    return instance;
+        ObjectInputStream ois = new ObjectInputStream(fichier);
+        instance = (Planning) ois.readObject();
+        ois.close();
+        return instance;
     }
   }
  

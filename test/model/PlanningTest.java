@@ -107,8 +107,8 @@ public class PlanningTest{
         GregorianCalendar calendar = new GregorianCalendar(2015, 05, 18);
         Creneau creneau = new Creneau(new Jour(calendar.getTime()),Periode.MATINEE);
 
-        planning.save("planning_save_2015");
-        Planning planningLoaded = Planning.load("C://tmp//planning_save.dat");
+        planning.save("planning_save_2");
+        Planning planningLoaded = Planning.load("planning_save_2");
          // Check if planning exist
         assertNotNull(planningLoaded);
         // Check if there is a sceance
@@ -129,8 +129,8 @@ public class PlanningTest{
         Creneau creneau = new Creneau(new Jour(calendar.getTime()),Periode.MATINEE);
         Module.init();
         
-        planning.save("planning_save_20015");
-         Planning planningLoaded = Planning.load("C://tmp//planning_save.dat");
+        planning.save("planning_save_3");
+         Planning planningLoaded = Planning.load("planning_save_3");
          
         // On vérifie que le planning n'est pas vide et ainsi confirme que les données sont sauvegardées
         assertNotNull(planning);
