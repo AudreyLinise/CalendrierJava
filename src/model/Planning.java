@@ -1,6 +1,7 @@
 package model;
 
 
+import execption.JourNonOvreExecption;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -94,6 +95,10 @@ public class Planning implements Serializable{
         instance = (Planning) ois.readObject();
         ois.close();
         return instance;
+    }
+
+    public void addCours(Cours cours) throws JourNonOvreExecption {
+        throw new JourNonOvreExecption();
     }
   }
  

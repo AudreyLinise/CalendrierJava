@@ -48,5 +48,5 @@ class Module {
     public Integer getNbSeances(){
         return this.nbSeances;
     }
-    
+    // TODO UNICITE
 }

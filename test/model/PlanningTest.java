@@ -1,10 +1,13 @@
 package model;
 
 
+import com.sun.istack.internal.logging.Logger;
+import execption.JourNonOvreExecption;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.GregorianCalendar;
+import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -65,6 +68,12 @@ public class PlanningTest{
         assertNotNull(planning.get(creneau).getCreneau());
         // Check if the creneau is ouvre
         assertFalse(planning.get(creneau).getCreneau().isOuvre()); 
+        try{
+            planning.addCours(new Cours(creneau));
+            Assert.fail();
+        }catch(JourNonOvreExecption e){
+            Logger.getLogger(PlanningTest.class).info("Insertion impossible pour une date non ouvré");
+        }
     }
     
     /**
@@ -133,7 +142,7 @@ public class PlanningTest{
          Planning planningLoaded = Planning.load("planning_save_3");
          
         // On vérifie que le planning n'est pas vide et ainsi confirme que les données sont sauvegardées
-        assertNotNull(planning);
+        assertNotNull(planningLoaded);
         
     }
 }
