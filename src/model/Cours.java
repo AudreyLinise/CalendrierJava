@@ -5,13 +5,16 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Audrey
  */
-class Cours {
+class Cours implements Serializable {
     Creneau creneau;
     Seance seance;
+    private  static  final  long serialVersionUID =  132539288134535L;
 
     public Cours(Creneau creneau) {
         this.creneau = creneau;

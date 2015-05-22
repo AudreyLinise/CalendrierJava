@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Objects;
@@ -13,10 +14,11 @@ import java.util.Objects;
  *
  * @author Audrey
  */
-class Jour {
+class Jour implements Serializable{
     Date date;
     boolean ouvre;
    
+    private  static  final  long serialVersionUID =  135009288134535L;
     /**
      * 
      * @param date 

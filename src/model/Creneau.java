@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /*
@@ -12,9 +13,10 @@ import java.util.Objects;
  *
  * @author Audrey
  */
-class Creneau {
+class Creneau implements Serializable {
     Jour jour;
     Periode periode;
+    private  static  final  long serialVersionUID =  1350092881346723535L;
 
     Creneau(Jour jour, Periode periode) {
         this.jour = jour;

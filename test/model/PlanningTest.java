@@ -2,6 +2,8 @@ package model;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.GregorianCalendar;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -69,23 +71,23 @@ public class PlanningTest{
      * Test : "Le planning peut être sauvé dans un fichier (stockage binaire)."
      */
     @Test
-    public void savePlanningTest(){
+    public void savePlanningTest() throws IOException{
         Planning planning = new Planning(2015);
-        planning.save("Planning_2015_save");
-        assertTrue(new File("Planning_2015_save").isFile());   
+        planning.save("planning_save_2015");
+        assertTrue(new File("C://tmp//planning_save_2015.dat").isFile());  //isFile verifie si le fichier le fichier est de type file 
     }
     
     /**
      * Test : "Les jours non ouvrés sont récupérés quand on rouvre ce planning."
      */
     @Test
-    public void loadPlanningTest(){
-        Planning planning = new Planning(2015);
+    public void loadPlanningTest() throws IOException, FileNotFoundException, ClassNotFoundException{
+        Planning planning = new Planning(2014);
         GregorianCalendar calendar = new GregorianCalendar(2015, 05, 17);
         Creneau creneau = new Creneau(new Jour(calendar.getTime()),Periode.MATINEE);
         planning.setOuvre(calendar.getTime(), false);
-        planning.save("Planning_2015_save");
-        Planning planningLoaded = Planning.load("Planning_2015_save");
+        planning.save("planning_save1");
+        Planning planningLoaded = Planning.load("planning_save1");
          // Check if planning exist
         assertNotNull(planningLoaded);
         // Check if there is a sceance
@@ -100,13 +102,13 @@ public class PlanningTest{
      * Test : "Sauver le planning de l'année sauve ces données."
      */
     @Test
-    public void saveDonneesPlanning(){
-        Planning planning = new Planning(2015);
+    public void saveDonneesPlanning() throws IOException, FileNotFoundException, ClassNotFoundException{
+        Planning planning = new Planning(2014);
         GregorianCalendar calendar = new GregorianCalendar(2015, 05, 18);
         Creneau creneau = new Creneau(new Jour(calendar.getTime()),Periode.MATINEE);
 
-        planning.save("Planning_2015_save");
-        Planning planningLoaded = Planning.load("Planning_2015_save");
+        planning.save("planning_save_2015");
+        Planning planningLoaded = Planning.load("C://tmp//planning_save.dat");
          // Check if planning exist
         assertNotNull(planningLoaded);
         // Check if there is a sceance
@@ -121,14 +123,14 @@ public class PlanningTest{
      * Test : "Sauver le planning de l'année sauve ces données."
      */
     @Test
-    public void saveDonneesEtPlanning(){
-        Planning planning = new Planning(2015);
+    public void saveDonneesEtPlanning() throws IOException, FileNotFoundException, ClassNotFoundException{
+        Planning planning = new Planning(2014);
         GregorianCalendar calendar = new GregorianCalendar(2015, 05, 18);
         Creneau creneau = new Creneau(new Jour(calendar.getTime()),Periode.MATINEE);
         Module.init();
         
-        planning.save("Planning_2015_save");
-         Planning planningLoaded = Planning.load("Planning_2015_save");
+        planning.save("planning_save_20015");
+         Planning planningLoaded = Planning.load("C://tmp//planning_save.dat");
          
         // On vérifie que le planning n'est pas vide et ainsi confirme que les données sont sauvegardées
         assertNotNull(planning);
