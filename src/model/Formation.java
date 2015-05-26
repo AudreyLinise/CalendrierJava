@@ -17,7 +17,13 @@ class Formation {
     Integer duree;
     List<Module> modules;
     
-    
+    /**
+     * Constructeur d'une formation
+     * @param n
+     * Le nom de la formation
+     * @param d 
+     * La durée de la formation
+     */
     public Formation(String n, Integer d){
         this.nom = n;
         this.duree = d;
@@ -48,6 +54,11 @@ class Formation {
         return this.modules;
     }
     
+    /**
+     * Calcule de la durée total du module
+     * @return 
+     * Retourn la durée totale
+     */
     public int duree(){
         int temp = 0;
         for (Module module: modules){

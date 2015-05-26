@@ -16,6 +16,7 @@ class Cours implements Serializable {
     Seance seance;
     private  static  final  long serialVersionUID =  132539288134535L;
 
+    
     public Cours(Creneau creneau) {
         this.creneau = creneau;
     }

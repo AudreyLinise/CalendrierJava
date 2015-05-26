@@ -16,8 +16,18 @@ import java.util.Objects;
 class Creneau implements Serializable {
     Jour jour;
     Periode periode;
+    /**
+     * Numérode l'objet à serialiser
+     */
     private  static  final  long serialVersionUID =  1350092881346723535L;
 
+    /**
+     * Constructeur d'un créneau
+     * @param jour
+     * Le jour du créneau
+     * @param periode 
+     * La période du créneau qui sera soit le matin ou l'après-midi
+     */
     Creneau(Jour jour, Periode periode) {
         this.jour = jour;
         this.periode = periode;
@@ -47,13 +57,14 @@ class Creneau implements Serializable {
         this.jour.setOuvre(b);
     }
 
-    
+    // Surcharge de la méthode equals
     @Override
     public int hashCode() {
         int hash = 5;
         return hash;
     }
 
+    
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {

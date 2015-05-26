@@ -9,6 +9,7 @@ package model;
  *
  * @author Audrey
  */
+
 enum Periode {
     MATINEE, APREM
 }

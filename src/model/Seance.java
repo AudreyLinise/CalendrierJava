@@ -10,8 +10,8 @@ package model;
  * @author Audrey
  */
 public class Seance {
-    int n;
-    int m;
+    int n; // rang du module
+    int m; //nombre de séance du module
     
     
 }
