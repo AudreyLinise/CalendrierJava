@@ -16,7 +16,11 @@ class Cours implements Serializable {
     Seance seance;
     private  static  final  long serialVersionUID =  132539288134535L;
 
-    
+    /**
+     * Constructeur d'un cours 
+     * @param creneau
+     * Prend en paramètre le créneau qui sera choisir pour y ajouter un cours
+     */
     public Cours(Creneau creneau) {
         this.creneau = creneau;
     }
